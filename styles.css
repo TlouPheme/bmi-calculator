@@ -1,0 +1,241 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body 
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+form 
+{
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    transition: transform 0.3s ease;
+}
+
+form:hover 
+{
+    transform: translateY(-5px);
+}
+
+.result-container 
+{
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+h2 
+{
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after 
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+label 
+{
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="number"] 
+{
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+    background-color: #f8f9fa;
+    margin-bottom: 20px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus 
+{
+    border-color: #667eea;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+
+button[type="submit"],
+.back-btn 
+{
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button[type="submit"]:hover,
+.back-btn:hover 
+{
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.user-details 
+{
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.user-details p 
+{
+    margin: 10px 0;
+    color: #555;
+    font-size: 16px;
+}
+
+.user-details strong 
+{
+    color: #333;
+    min-width: 100px;
+    display: inline-block;
+}
+
+.bmi-result 
+{
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.bmi-number 
+{
+    font-size: 48px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.bmi-category 
+{
+    font-size: 24px;
+    margin-bottom: 10px;
+    padding: 5px 15px;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.bmi-scale 
+{
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.bmi-scale h3 
+{
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.scale-item 
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.underweight { background: #fff3cd; color: #856404; }
+.normal { background: #d4edda; color: #155724; }
+.overweight { background: #fff3cd; color: #856404; }
+.obese { background: #f8d7da; color: #721c24; }
+
+.error 
+{
+    background: #f8d7da;
+    color: #721c24;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+br 
+{
+    display: none;
+}
+
+@media (max-width: 480px) 
+{
+    form, .result-container 
+    {
+        padding: 30px 20px;
+    }
+    
+    h2 
+    {
+        font-size: 24px;
+    }
+    
+    .bmi-number 
+    {
+        font-size: 36px;
+    }
+}
