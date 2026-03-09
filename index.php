@@ -18,15 +18,15 @@
         <br>
         <br>
         <label for="age">Age:</label>
-        <input type="integer" id="age" name="age">
+        <input type="number" id="age" name="age">
         <br>
         <br>
         <label for="weight">Weight:</label>
-        <input type="integer" id="weight" name="weight">
+        <input type="number" id="weight" name="weight">
         <br>
         <br>
         <label for="height">Height:</label>
-        <input type="integer" id="height" name="height">
+        <input type="number" id="height" name="height">
         <br>
         <br>
         <button type="submit">Calculate</button>
