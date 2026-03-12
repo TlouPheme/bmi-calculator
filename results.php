@@ -1,5 +1,12 @@
 <?php
     include 'db_connect.php';
+
+    $sql = "INSERT INTO user (user_id, user_firstname, user_lastname, user_age, user_height, user_weight, user_bmi)
+            VALUES ('001', 'Tlou', 'Pheme', '29', '166', '82', '31.6')";
+
+    mysqli_query($conn, $sql);
+
+    mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
