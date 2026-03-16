@@ -18,7 +18,7 @@
         <br>
         <br>
         <label for="age">Age:</label>
-        <input type="number" id="age" name="age" min="12" required>
+        <input type="number" id="age" name="age" min="16" required>
         <br>
         <br>
         <label for="weight">Weight:</label>

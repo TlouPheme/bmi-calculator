@@ -19,13 +19,72 @@
             $age = htmlspecialchars($_POST["age"]);
             $weight = floatval($_POST["weight"]);
             $height = floatval($_POST["height"]);
-            
-            $heightInMeters = $height / 100; 
-            $bmi = $weight / ($heightInMeters * $heightInMeters);
-            $bmi = round($bmi, 1); 
 
-            $sql = "INSERT INTO users (user, user_age, user_height, user_weight, user_bmi)
-            VALUES ( $firstName, $lastName, $age, $height, $weight, $bmi)";
+            $errors = [];
+
+            if(preg_match("/[A-Za-z ]+/", $firstName))
+            {
+                echo"That is allowed";
+            }
+            else
+            {
+                echo"That is not allowed";
+                $errors[] = "Invalid name";
+            }
+
+            if(preg_match("/[A-Za-z ]+/", $lastName))
+            {
+                echo"That is allowed";
+            }
+            else
+            {
+                echo"That is not allowed";
+                $errors[] = "Invalid lastname";
+            }
+
+            if(preg_match("/[0-9 ]+/", $age))
+            {
+                echo"That is allowed";
+            }
+            else
+            {
+                echo"That is not allowed";
+                $errors[] = "Invalid age";
+            }
+
+            if(preg_match("/[0-9 ]+/", $weight))
+            {
+                echo"That is allowed";
+            }
+            else
+            {
+                echo"That is not allowed";
+                $errors[] = "Invalid weight";
+            }
+
+            if(preg_match("/[0-9 ]+/", $height))
+            {
+                echo"That is allowed";
+            }
+            else
+            {
+                echo"That is not allowed";
+                $errors[] = "Invalid height";
+            }
+
+            if(empty($errors))
+            {
+                $heightInMeters = $height / 100; 
+                $bmi = $weight / ($heightInMeters * $heightInMeters);
+                $bmi = round($bmi, 1); 
+
+                $sql = "INSERT INTO users (user, user_age, user_height, user_weight, user_bmi)
+                VALUES ($firstName, $lastName, $age, $height, $weight, $bmi)";
+            }
+            else
+            {
+                echo"Invalid";
+            }
 
         try
         {
