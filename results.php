@@ -1,12 +1,5 @@
 <?php
-    include 'db_connect.php';
-
-    $sql = "INSERT INTO user (user_id, user_firstname, user_lastname, user_age, user_height, user_weight, user_bmi)
-            VALUES ('001', 'Tlou', 'Pheme', '29', '166', '82', '31.6')";
-
-    mysqli_query($conn, $sql);
-
-    mysqli_close($conn);
+    include("db_connect.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,31 +23,46 @@
             $heightInMeters = $height / 100; 
             $bmi = $weight / ($heightInMeters * $heightInMeters);
             $bmi = round($bmi, 1); 
-            
-            if($bmi < 18.5) 
-            {
-                $category = "Underweight";
-                $categoryClass = "underweight";
-                $advice = "Consider consulting with a healthcare provider about healthy ways to gain weight.";
-            } 
-            elseif($bmi >= 18.5 && $bmi < 25) 
-            {
-                $category = "Normal weight";
-                $categoryClass = "normal";
-                $advice = "Great job! Maintain your healthy weight with a balanced diet and regular exercise.";
-            } 
-            elseif($bmi >= 25 && $bmi < 30) 
-            {
-                $category = "Overweight";
-                $categoryClass = "overweight";
-                $advice = "Consider incorporating more physical activity and making healthy food choices.";
-            } 
-            else 
-            {
-                $category = "Obese";
-                $categoryClass = "obese";
-                $advice = "It's recommended to consult with a healthcare provider for personalized advice.";
-            }
+
+            $sql = "INSERT INTO users (user, user_age, user_height, user_weight, user_bmi)
+            VALUES ( $firstName, $lastName, $age, $height, $weight, $bmi)";
+
+        try
+        {
+            mysqli_query($conn, $sql);
+            echo"User is now registered.";
+        }
+        catch(mysqli_sql_exception)
+        {
+            echo"Could now register user.";
+        }
+    
+        mysqli_close($conn);
+
+        if($bmi < 18.5) 
+        {
+            $category = "Underweight";
+            $categoryClass = "underweight";
+            $advice = "Consider consulting with a healthcare provider about healthy ways to gain weight.";
+        } 
+        elseif($bmi >= 18.5 && $bmi < 25) 
+        {
+            $category = "Normal weight";
+            $categoryClass = "normal";
+            $advice = "Great job! Maintain your healthy weight with a balanced diet and regular exercise.";
+        } 
+        elseif($bmi >= 25 && $bmi < 30) 
+        {
+            $category = "Overweight";
+            $categoryClass = "overweight";
+            $advice = "Consider incorporating more physical activity and making healthy food choices.";
+        } 
+        else 
+        {
+            $category = "Obese";
+            $categoryClass = "obese";
+            $advice = "It's recommended to consult with a healthcare provider for personalized advice.";
+        }
         ?>
             
         <h2>Your BMI Results</h2>

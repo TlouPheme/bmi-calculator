@@ -10,15 +10,15 @@
     <form action="results.php" method="post">
         <h2>BMI Calculator</h2>
         <label for="firstName">First name:</label>
-        <input type="text" id="firstName" name="firstName">
+        <input type="text" id="firstName" name="firstName" pattern="[A-Za-z ]+" required>
         <br>
         <br>
         <label for="lastName">Last name:</label>
-        <input type="text" id="lastName" name="lastName">
+        <input type="text" id="lastName" name="lastName" pattern="[A-Za-z ]+" required>
         <br>
         <br>
         <label for="age">Age:</label>
-        <input type="number" id="age" name="age">
+        <input type="number" id="age" name="age" min="12" required>
         <br>
         <br>
         <label for="weight">Weight:</label>

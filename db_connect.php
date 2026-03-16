@@ -16,6 +16,6 @@
     
     if($conn)
     {
-        echo"You are connected.<br><br>";
+        echo"You are connected.";
     }
 ?>
